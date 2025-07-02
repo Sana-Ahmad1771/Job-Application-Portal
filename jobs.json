@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "job-title": "Frontend developer",
+            "jobType": "Full time",
+            "city": "Lahore",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "Backend developer",
+            "jobType": "Full time",
+            "city": "Karachi",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "UI/UX Designer",
+            "jobType": "Part time",
+            "city": "Islamabad",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "QA Engineer",
+            "jobType": "Full time",
+            "city": "Lahore",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "Project Manager",
+            "jobType": "Full time",
+            "city": "Karachi",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "DevOps Engineer",
+            "jobType": "Part time",
+            "city": "Islamabad",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "Mobile Developer",
+            "jobType": "Full time",
+            "city": "Lahore",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "Data Scientist",
+            "jobType": "Full time",
+            "city": "Karachi",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "System Analyst",
+            "jobType": "Part time",
+            "city": "Islamabad",
+            "img": "./Depth 6, Frame 1 (2).png"
+        },
+        {
+            "job-title": "Support Engineer",
+            "jobType": "Full time",
+            "city": "Lahore",
+            "img": "./Depth 6, Frame 1 (2).png"
+        }
+    ]
+}
