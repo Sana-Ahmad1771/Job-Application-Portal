@@ -66,12 +66,22 @@
                     <label for="additionalmessage">Additional Information</label>
                     <textarea id="additionalmessage"></textarea>
                 </div>
-                            <div class="form-button"><button id="submitBtn" type="submit">Submit Application</button></div>
+                <div class="form-button"><button id="submitBtn" type="submit">Submit Application</button></div>
             </form>
 
         </section>
     </section>
     <script>
+        function getQueryParam(param) {
+            return new URLSearchParams(window.location.search).get(param) || '';
+        }
+        window.addEventListener('DOMContentLoaded', function () {
+            const title = getQueryParam('title');
+            const type = getQueryParam('type');
+            const city = getQueryParam('city');
+            if (title) document.querySelector('.main-heading h1').textContent = title;
+            if (type && city) document.querySelector('.main-heading h6').textContent = `${type} · ${city}`;
+        });
         document.getElementById('jobForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -106,6 +116,12 @@
 
             alert('Application submitted! (Check console for data)');
         });
+
+        function getQueryParam(param) {
+            return new URLSearchParams(window.location.search).get(param) || '';
+        }
+
+
     </script>
 </body>
 

@@ -14,6 +14,25 @@ async function loadJobs() {
 }
 
 loadJobs(); // Call the async function
+// Add this after loadJobs();
+const jobTypeSelect = document.querySelector('.filters select');
+if (jobTypeSelect) {
+  jobTypeSelect.addEventListener('change', function () {
+    const selected = this.value;
+    if (selected === "Job Type") {
+      displayJobs(jobData); // Show all jobs
+    } else {
+      // Filter jobs by jobType (case-insensitive)
+      const filtered = {
+        data: jobData.data.filter(job =>
+          job.jobType.toLowerCase() === selected.toLowerCase()
+        )
+      };
+      displayJobs(filtered);
+    }
+  });
+}
+
 
 function displayJobs(data) {
   console.log(data);
@@ -25,7 +44,14 @@ function displayJobs(data) {
         <div class="job-content">
           <h2>${i["job-title"]}</h2>
           <p>${i.jobType} | ${i.city}</p>
-          <div><button class="apply-btn" data-title="${i["job-title"]}">Apply</button></div>
+          <div>
+          <button class="apply-btn"
+             data-title="${i["job-title"]}"
+             data-type="${i["jobType"]}"
+             data-city="${i["city"]}">
+             Apply
+           </button>
+          </div>
         </div>
         <div>
           <img src="${i.img}" alt="jobs-image">
@@ -38,18 +64,22 @@ function displayJobs(data) {
   // Add event listeners to all apply buttons
   document.querySelectorAll(".apply-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
-      window.open(
-        "form.html?job=" + encodeURIComponent(this.dataset.title),
-        "_blank"
-      );
+      const params = new URLSearchParams({
+        title: this.dataset.title,
+        type: this.dataset.type,
+        city: this.dataset.city,
+      });
+      window.open("form.html?" + params.toString(), "_blank");
     });
   });
 }
-if (window.location.pathname.endsWith('form.html')) {
-  const submitBtn = document.querySelector('.form-button button[type="submit"]');
+if (window.location.pathname.endsWith("form.html")) {
+  const submitBtn = document.querySelector(
+    '.form-button button[type="submit"]'
+  );
   if (submitBtn) {
-    submitBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.keyCode === 13) {
+    submitBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.keyCode === 13) {
         e.preventDefault();
         submitBtn.click();
       }
